@@ -11,6 +11,7 @@ streak = 0
 streak_winner = None
 
 while True:
+  print("If you'd like to verify my work, head to https://github.com/waitisthatv/csc125")
   user = input("Choose Rock (R), Paper (P), Scissors (S), or Quit (Q): ").upper()
   if user == "Q":
     break
