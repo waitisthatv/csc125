@@ -66,3 +66,4 @@ while True:
 print("Game Over!")
 print(f"Your wins: {score['user']}, Computer wins: {score['computer']}, Ties: {score['tie']}")
 print(f"Your choices: Rock={user_counts['R']}, Paper={user_counts['P']}, Scissors={user_counts['S']}")
+input("Press Enter to exit.")
