@@ -44,7 +44,6 @@ RIGHT = 'right'
 
 def main():
     global FPSCLOCK, DISPLAYSURF, BASICFONT, RESET_SURF, RESET_RECT, NEW_SURF, NEW_RECT, SOLVE_SURF, SOLVE_RECT
-    global timeleft
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
@@ -70,10 +69,10 @@ def main():
         if mainBoard == SOLVEDBOARD:
             msg = 'Solved!'
 
-        drawBoard(mainBoard, msg)
+        drawBoard(mainBoard, msg, timeleft)
 
         if timeleft == 0:
-            drawBoard(mainBoard, 'Time Up!')
+            drawBoard(mainBoard, 'Time Up!', timeleft)
             pygame.display.update()
             pygame.time.wait(3000)
             mainBoard, solutionSeq = generateNewPuzzle(80)
@@ -245,7 +244,7 @@ def makeText(text, color, bgcolor, top, left):
     return (textSurf, textRect)
 
 
-def drawBoard(board, message):
+def drawBoard(board, message, timeleft):
     DISPLAYSURF.fill(BGCOLOR)
     if message:
         textSurf, textRect = makeText(message, MESSAGECOLOR, BGCOLOR, 5, 5)
@@ -286,7 +285,7 @@ def slideAnimation(board, direction, message, animationSpeed):
         movey = blanky
 
     # prepare the base surface
-    drawBoard(board, message)
+    drawBoard(board, message, timeleft=0)
     baseSurf = DISPLAYSURF.copy()
     # draw a blank space over the moving tile on the baseSurf Surface.
     moveLeft, moveTop = getLeftTopOfTile(movex, movey)
@@ -314,7 +313,7 @@ def generateNewPuzzle(numSlides):
     # animate these moves).
     sequence = []
     board = getStartingBoard()
-    drawBoard(board, '')
+    drawBoard(board, '', timeleft=0)
     pygame.display.update()
     pygame.time.wait(500) # pause 500 milliseconds for effect
     lastMove = None
