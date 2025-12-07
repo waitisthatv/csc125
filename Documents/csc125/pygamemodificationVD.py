@@ -63,7 +63,7 @@ def main():
 
     while True: # main game loop
         timepassed = (pygame.time.get_ticks() - timer) // 1000
-        timeleft = max(0, 600 - timepassed)
+        timeleft = max(0, 30 - timepassed)
         slideTo = None # the direction, if any, a tile should slide
         msg = 'Click tile or press arrow keys to slide.' # contains the message to show in the upper left corner.
         if mainBoard == SOLVEDBOARD:
