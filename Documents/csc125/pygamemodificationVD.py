@@ -50,6 +50,7 @@ def main():
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
     pygame.display.set_caption('Slide Puzzle')
     BASICFONT = pygame.font.Font('freesansbold.ttf', BASICFONTSIZE)
+    timer = pygame.time.get_ticks()
 
     # Store the option buttons and their rectangles in OPTIONS.
     RESET_SURF, RESET_RECT = makeText('Reset',    TEXTCOLOR, TILECOLOR, WINDOWWIDTH - 120, WINDOWHEIGHT - 90)
@@ -61,12 +62,23 @@ def main():
     allMoves = [] # list of moves made from the solved configuration
 
     while True: # main game loop
+        timepassed = (pygame.time.get_ticks() - timer) // 1000
+        timeleft = max(0, 600 - timepassed)
         slideTo = None # the direction, if any, a tile should slide
         msg = 'Click tile or press arrow keys to slide.' # contains the message to show in the upper left corner.
         if mainBoard == SOLVEDBOARD:
             msg = 'Solved!'
 
         drawBoard(mainBoard, msg)
+
+        if timeleft == 0:
+            drawBoard(mainBoard, 'Time Up!')
+            pygame.display.update()
+            pygame.time.wait(3000)
+            mainBoard, solutionSeq = generateNewPuzzle(80)
+            timer = pygame.time.get_ticks()
+            allMoves = []
+            continue
 
         checkForQuit()
         for event in pygame.event.get(): # event handling loop
@@ -237,6 +249,8 @@ def drawBoard(board, message):
     if message:
         textSurf, textRect = makeText(message, MESSAGECOLOR, BGCOLOR, 5, 5)
         DISPLAYSURF.blit(textSurf, textRect)
+        timerSurf, timerRect = makeText(f'Time: {timeleft}', WHITE, BGCOLOR, 5, 35)
+        DISPLAYSURF.blit(timerSurf, timerRect)
 
     for tilex in range(len(board)):
         for tiley in range(len(board[0])):
