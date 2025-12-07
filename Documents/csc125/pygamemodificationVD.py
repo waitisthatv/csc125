@@ -44,6 +44,7 @@ RIGHT = 'right'
 
 def main():
     global FPSCLOCK, DISPLAYSURF, BASICFONT, RESET_SURF, RESET_RECT, NEW_SURF, NEW_RECT, SOLVE_SURF, SOLVE_RECT
+    global timeleft
 
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
