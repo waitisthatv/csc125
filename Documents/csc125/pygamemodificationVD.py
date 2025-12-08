@@ -1,9 +1,6 @@
 # Vincent Doucette
 # Project 4 for CSC-125-WB
-# remix log once im done
-# more than likely going to increase board
-# more than like going ti add a restart option
-# either change color or add 10 minute timer for puzzle; color is simpler
+# remix log about increased board, adding a timer, and changing the colors of the game
 
 import pygame, sys, random
 from pygame.locals import *
@@ -63,7 +60,7 @@ def main():
 
     while True: # main game loop
         timepassed = (pygame.time.get_ticks() - timer) // 1000
-        timeleft = max(0, 30 - timepassed)
+        timeleft = max(0, 600 - timepassed)
         slideTo = None # the direction, if any, a tile should slide
         msg = 'Click tile or press arrow keys to slide.' # contains the message to show in the upper left corner.
         if mainBoard == SOLVEDBOARD:
