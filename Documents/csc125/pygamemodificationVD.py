@@ -1,6 +1,6 @@
 # Vincent Doucette
 # Project 4 for CSC-125-WB
-# remix log about increased board, adding a timer, and changing the colors of the game
+# I chose the slide puzzle for my game. To start I changed the board size, window size, and fps, along with making the tiles smaller. Then I changed the tile, background, and border colors. I added a 10 minute timer at the end. The first two were easier as the sections of code I needed are right at the start. I added a timer variable in the main loop and updated the drawBoard function to display it. However, the program kept crashing on startup because I didn't define timeleft within drawBoard itself. After adding it to all drawBoard calls, the timer appeared as intended, and reshuffles your board if you take too long.
 
 import pygame, sys, random
 from pygame.locals import *
