@@ -167,7 +167,9 @@ def makeMove(board, move):
         board[blankx][blanky], board[blankx][blanky + 1] = board[blankx][blanky + 1], board[blankx][blanky]
     elif move == DOWN:
         board[blankx][blanky], board[blankx][blanky - 1] = board[blankx][blanky - 1], board[blankx][blanky]
-    elif move = LEFT:
+    # the statement below was missing a second =, causing the syntax error. once corrected, the
+    # code should work as expected.
+    elif move == LEFT:
         board[blankx][blanky], board[blankx + 1][blanky] = board[blankx + 1][blanky], board[blankx][blanky]
     elif move == RIGHT:
         board[blankx][blanky], board[blankx - 1][blanky] = board[blankx - 1][blanky], board[blankx][blanky]
@@ -334,4 +336,5 @@ def resetAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
