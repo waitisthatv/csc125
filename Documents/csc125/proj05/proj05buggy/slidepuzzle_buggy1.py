@@ -314,8 +314,11 @@ def generateNewPuzzle(numSlides):
         lastMove = move
     return (board, sequence)
 
+# The game crashed when clicking Reset or Solve because the function below had a typo. Python gave
+# me a nameError stating 'resetAnimation' was not defined. Once changed, the puzzle should operate
+# as intended.
 
-def reestAnimation(board, allMoves):
+def resetAnimation(board, allMoves):
     # make all of the moves in allMoves in reverse.
     revAllMoves = allMoves[:] # gets a copy of the list
     revAllMoves.reverse()
@@ -334,4 +337,5 @@ def reestAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
