@@ -51,7 +51,9 @@ def main():
     pygame.init()
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
-    pygame.display.set_caption('Slide Puzzle)
+    # the string for the caption has no closing quote, producing the syntax error given to us.
+    # 'EOL while scanning string literal'. once added the code works as expected.
+    pygame.display.set_caption('Slide Puzzle')
     BASICFONT = pygame.font.Font('freesansbold.ttf', BASICFONTSIZE)
 
     # Store the option buttons and their rectangles in OPTIONS.
@@ -334,4 +336,5 @@ def resetAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
