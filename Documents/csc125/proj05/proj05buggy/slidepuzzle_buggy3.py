@@ -287,7 +287,9 @@ def slideAnimation(board, direction, message, animationSpeed):
         if direction == UP:
             drawTile(movex, movey, board[movex][movey], 0, -i)
         if direction == DOWN:
-            drawTile(movex, movey, board[movex][movey], i, i)
+            # the animation for a tile sliding down was incorrect. when checking the code, i 
+            # noticed the x and y were both increasing. setting the x offset to 0 should fix this.
+            drawTile(movex, movey, board[movex][movey], 0, i)
         if direction == LEFT:
             drawTile(movex, movey, board[movex][movey], -i, 0)
         if direction == RIGHT:
@@ -334,4 +336,5 @@ def resetAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
