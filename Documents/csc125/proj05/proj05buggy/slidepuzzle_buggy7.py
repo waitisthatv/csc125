@@ -82,7 +82,10 @@ def main():
                         resetAnimation(mainBoard, allMoves) # clicked on Reset button
                         allMoves = []
                     elif NEW_RECT.collidepoint(event.pos):
-                        solutionSeq, mainBoard = generateNewPuzzle(80) # clicked on New Game button
+                        # the values below are assigned in the wrong order, causing the 
+                        # IndexError when i click new game. correcting this makes sure
+                        # mainBoard is a board and solutionSeq is a list of moves.
+                        mainBoard, solutionSeq = generateNewPuzzle(80) # clicked on New Game button
                         allMoves = []
                     elif SOLVE_RECT.collidepoint(event.pos):
                         resetAnimation(mainBoard, solutionSeq + allMoves) # clicked on Solve button
@@ -334,4 +337,5 @@ def resetAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
