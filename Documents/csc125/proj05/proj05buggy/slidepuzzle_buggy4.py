@@ -86,7 +86,9 @@ def main():
                         allMoves = []
                     elif SOLVE_RECT.collidepoint(event.pos):
                         resetAnimation(mainBoard, solutionSeq + allMoves) # clicked on Solve button
-                        alllMoves = []
+                        # the variable below had a typo as 'alllMoves'. correcting it should prevent
+                        # Solve from storing old moves when pressed twice.
+                        allMoves = []
                 else:
                     # check if the clicked tile was next to the blank spot
 
@@ -334,4 +336,5 @@ def resetAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
