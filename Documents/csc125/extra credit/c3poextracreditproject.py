@@ -31,7 +31,7 @@ while True:
   elif validate.startswith("i am"):
     something = user_input[5:].strip()
     print(f"When I was last {something} I suggested a new strategy to R2: to let the Wookiee win.")
-  elif validate.startswith("I feel"):
+  elif validate.startswith("i feel"):
     print(f"When I feel that way…well droids don’t feel. Master {name}, it’s why nobody worries about upsetting a droid.")
   elif user_input.endswith("?"):
     print(f"For a mechanic, you seem to do an incessant amount of thinking {name}. If I told you half the things I've heard about this Jabba the Hutt, you'd probably short circuit.")
