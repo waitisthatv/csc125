@@ -137,7 +137,9 @@ def getStartingBoard():
     # Return a board data structure with tiles in the solved state.
     # For example, if BOARDWIDTH and BOARDHEIGHT are both 3, this function
     # returns [[1, 4, 7], [2, 5, 8], [3, 6, BLANK]]
-    counter = 0
+    # since the counter is starting at 0, one tile is treated as false causing the second
+    # blank spot. changing it to equal 1 should fix this bug and have only one empty spot.
+    counter = 1
     board = []
     for x in range(BOARDWIDTH):
         column = []
@@ -334,4 +336,5 @@ def resetAnimation(board, allMoves):
 
 
 if __name__ == '__main__':
+
     main()
