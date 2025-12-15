@@ -1,3 +1,4 @@
+# head to https://github.com/waitisthatv/csc125/edit/main/Documents/csc125/extra%20credit/c3poextracreditproject.py for timestamped saves of me debugging the conversation loop! thank you for your time and for your advice.
 def count_letters(text):
   count = 0
   for char in text:
