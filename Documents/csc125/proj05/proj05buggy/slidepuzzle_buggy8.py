@@ -338,3 +338,15 @@ def resetAnimation(board, allMoves):
 if __name__ == '__main__':
 
     main()
+
+###
+# Debug Journal - https://github.com/waitisthatv/csc125/tree/main/Documents/csc125/proj05
+
+# The haredest bug to fix in my opinion was number 7. Most of the typo errors give me some
+# form of clue with the error message, or it was easy to find when comparing to the source
+# code. For 7, the IndexError didn't really point me to checking the order of the return values.
+# A debugging strategy that was helpful for me was paying careful attenton to the error messages
+# and finding out which variables were involved. Comparing with the source code is also extremely
+# helpful. Fixing these bugs helped me learn that PyGame relies on correct state management. Even 
+# tiny mistakes when setting up can cause visual glitches or crashes, so keeping data organized
+# is important.
